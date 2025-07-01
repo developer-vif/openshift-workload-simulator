@@ -3,27 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - pip install -r requirements.txt
+        - npm install
     build:
       commands:
-        - echo "Frontend build not applicable for this project type"
+        - echo "No build step required for this project"
   artifacts:
-    baseDirectory: /
+    baseDirectory: /public/
     files:
       - '**/*'
   cache:
     paths:
-      - /root/.cache/pip
-backend:
-  phases:
-    preBuild:
-      commands:
-        - pip install -r requirements.txt
-    build:
-      commands:
-        - echo "Backend build not applicable for this project type"
-  containerization:
-    python:
-      app_root: /
-      wsgi_file: wsgi.py
-      requirements_file: requirements.txt
+      - node_modules/**/*
