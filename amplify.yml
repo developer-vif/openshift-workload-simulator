@@ -3,20 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - echo "No dependencies to install"
     build:
       commands:
-        - echo "No build step required."
+        - echo "No build step required"
   artifacts:
-    # This is the crucial part. We define the entire app as the artifact.
-    # Amplify's compute environment will receive these files and run the start command.
     baseDirectory: .
     files:
-      - server.js
-      - package.json
-      - package-lock.json
-      - 'views/**/*'
-      - 'public/**/*'
-  cache:
-    paths:
-      - node_modules/**/*
+      - index.html
+      - style.css
+      - simulator.js
+      - script.js

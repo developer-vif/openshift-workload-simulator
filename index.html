@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenShift Resource Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>OpenShift Resource Simulator</h1>
+
+        <div class="section">
+            <h2>Cluster Summary</h2>
+            <div id="cluster-summary">Loading...</div>
+            <div class="form-group">
+                <label for="simulatedWorkloadFactor">Simulated Workload Factor:</label>
+                <input type="range" id="simulatedWorkloadFactor" min="0" max="1" step="0.01" value="0">
+                <span id="simulatedWorkloadFactorValue">0%</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Worker Nodes</h3>
+            <div class="form-group">
+                <label for="nodeCount">Number of Worker Nodes:</label>
+                <input type="range" id="nodeCount" min="3" max="100" step="1" value="3">
+                <span id="nodeCountValue">3</span>
+            </div>
+            <div id="worker-nodes">Loading...</div>
+        </div>
+
+        <div class="section">
+            <h2>Namespaces</h2>
+            <div id="namespaces">Loading...</div>
+            <h3>Create New Namespace</h3>
+            <div class="form-group">
+                <input type="text" id="namespaceName" placeholder="Namespace Name">
+                <input type="number" id="namespaceCpuQuota" placeholder="CPU Quota (cores)" min="1">
+                <input type="number" id="namespaceMemoryQuota" placeholder="Memory Quota (GB)" min="1">
+                <button onclick="createNamespace()">Create Namespace</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Deployments</h2>
+            <div id="deployments">Loading...</div>
+            <h3>Add New Deployment</h3>
+            <div class="form-group">
+                <input type="text" id="deploymentName" placeholder="Deployment Name">
+                <input type="text" id="deploymentNamespace" placeholder="Namespace">
+                <input type="number" id="deploymentReplicas" placeholder="Replicas" min="1">
+                <input type="number" id="deploymentCpuPerReplica" placeholder="CPU/Replica (cores)" min="0.1" step="0.1">
+                <input type="number" id="deploymentMemoryPerReplica" placeholder="Memory/Replica (GB)" min="0.1" step="0.1">
+                <button onclick="addDeployment()">Add Deployment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="simulator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
