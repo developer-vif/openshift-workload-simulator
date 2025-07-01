@@ -1,22 +1,12 @@
 version: 1
-appRoot: . # The root of your application
-backend:
-  phases:
-    build:
-      commands:
-        - '# The build commands for your backend'
 frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - npm install
     build:
       commands:
-        - echo "No build step required for this project"
-  artifacts:
-    baseDirectory: public
-    files:
-      - '**/*'
+        - echo "Build completed"
   cache:
     paths:
       - node_modules/**/*
