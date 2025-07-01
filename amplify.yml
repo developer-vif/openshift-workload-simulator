@@ -6,9 +6,9 @@ frontend:
         - npm install
     build:
       commands:
-        - npm start
+        - echo "Build phase; no server start here"
   artifacts:
-    baseDirectory: /public/
+    baseDirectory: public
     files:
       - '**/*'
   cache:
