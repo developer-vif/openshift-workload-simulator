@@ -172,21 +172,6 @@ async function deleteDeployment(name) {
     fetchStatus();
 }
 
-    document.getElementById('nodeCount').addEventListener('input', async function() {
-        document.getElementById('nodeCountValue').innerText = this.value;
-        const count = parseInt(this.value);
-        const response = await fetch('/api/set_node_count', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ count })
-        });
-        const data = await response.json();
-        // console.log(data.message);
-        fetchStatus(); // Refresh status after setting node count
-    });
-
 async function createNamespace() {
     const name = document.getElementById('namespaceName').value;
     const cpuQuota = parseFloat(document.getElementById('namespaceCpuQuota').value);
