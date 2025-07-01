@@ -1,0 +1,29 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - pip install -r requirements.txt
+    build:
+      commands:
+        - echo "Frontend build not applicable for this project type"
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - /root/.cache/pip
+backend:
+  phases:
+    preBuild:
+      commands:
+        - pip install -r requirements.txt
+    build:
+      commands:
+        - echo "Backend build not applicable for this project type"
+  containerization:
+    python:
+      app_root: /
+      wsgi_file: wsgi.py
+      requirements_file: requirements.txt
