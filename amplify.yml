@@ -1,12 +1,18 @@
 version: 1
+appRoot: . # The root of your application
+backend:
+  phases:
+    build:
+      commands:
+        - '# The build commands for your backend'
 frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - npm ci
     build:
       commands:
-        - echo "Build phase; no server start here"
+        - echo "No build step required for this project"
   artifacts:
     baseDirectory: public
     files:
