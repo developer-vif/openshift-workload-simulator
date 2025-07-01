@@ -6,7 +6,7 @@ frontend:
         - npm install
     build:
       commands:
-        - echo "No build step required for this project"
+        - npm start
   artifacts:
     baseDirectory: /public/
     files:
